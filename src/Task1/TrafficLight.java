@@ -1,3 +1,5 @@
+package Task1;
+
 public class TrafficLight {
     /* Task:
        Сделать светофор с выводом цвета в консоль. Вы вводите минуту

@@ -1,3 +1,7 @@
+package Task1;
+
+import Task1.TrafficLight;
+
 import java.util.Scanner;
 
 public class TrafficLightUsage {
