@@ -1,4 +1,8 @@
 package task1;
+// TODO: move test to test (maven)
+// TODO: strings to enum
+
+
 
 /* Task:
  * Сделать светофор с выводом цвета в консоль. Вы вводите минуту
