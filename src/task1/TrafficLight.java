@@ -23,6 +23,8 @@ public class TrafficLight {
             result = "yellow";
         } else if (modMinutes < RED_TIME + YELLOW_TIME + GREEN_TIME) {
             result = "green";
+        } else {
+            throw new IllegalArgumentException("Wrong argument value");
         }
         return result;
     }
