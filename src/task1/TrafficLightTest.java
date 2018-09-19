@@ -1,6 +1,5 @@
-package Task1;
+package task1;
 
-import Task1.TrafficLight;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

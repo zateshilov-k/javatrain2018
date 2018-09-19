@@ -1,6 +1,4 @@
-package Task1;
-
-import Task1.TrafficLight;
+package task1;
 
 import java.util.Scanner;
 
