@@ -4,7 +4,8 @@ import java.util.Scanner;
 
 public class TrafficLightUsage {
     public static void main(String[] args) {
-        System.out.println("Enter the minute for which you want to get the color of the traffic light or 'exit'.");
+        System.out.println("Enter the minute for which you want to get the " +
+                "color of the traffic light or 'exit'.");
         Scanner keyboard = new Scanner(System.in);
 
         String inputLine = keyboard.nextLine();
