@@ -1,4 +1,4 @@
-package test.java;
+package test.java.task1;
 
 import main.java.task1.TrafficLight;
 import org.junit.jupiter.api.Assertions;
