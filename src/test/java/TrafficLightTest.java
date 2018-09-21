@@ -1,5 +1,7 @@
-package task1;
+package test.java;
 
+import main.java.task1.TrafficLight;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -8,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class TrafficLightTest {
     @Test
     public void colorWorksProperly() {
-        assertEquals("red", TrafficLight.getColorAfterTime(0));
+        Assertions.assertEquals("red", TrafficLight.getColorAfterTime(0));
         assertEquals("red", TrafficLight.getColorAfterTime(1));
 
         assertEquals("yellow", TrafficLight.getColorAfterTime(2));

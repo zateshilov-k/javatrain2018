@@ -1,7 +1,6 @@
-package task1;
+package main.java.task1;
 // TODO: move test to test (maven)
 // TODO: strings to enum
-
 
 
 /* Task:
@@ -10,10 +9,10 @@ package task1;
  * Первые две минуты красный, потом три минуты желтый и пять минут зеленый.
  */
 public class TrafficLight {
-    static final int FULL_CYCLE_TIME = 10;
     static final int RED_TIME = 2;
     static final int YELLOW_TIME = 3;
     static final int GREEN_TIME = 5;
+    static final int FULL_CYCLE_TIME = RED_TIME + YELLOW_TIME + GREEN_TIME;
 
     public static String getColorAfterTime(int minutes) {
         if (minutes < 0) {
