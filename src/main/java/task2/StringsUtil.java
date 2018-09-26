@@ -46,20 +46,4 @@ public class StringsUtil {
         ch[j] = temp;
         return new String(ch);
     }
-
-    public static void main(String[] args) {
-        final String string = "abcd_efg";
-        final int k = 2;
-
-        try {
-            System.out.println(getStringSymbol(string, 2)); //third letter
-            System.out.println(getStringSymbol(string, string.length() - 1)); // last letter
-            System.out.println(getStringSymbol(string, k - 1)); // k-th letter
-        } catch (ArrayIndexOutOfBoundsException e) {
-            System.err.println(e.getMessage());
-        }
-
-        System.out.println(countEqualNeighbouringLetters("aaa  bb  cc"));
-        System.out.println(swapLetters(string, 1, 4));
-    }
 }
