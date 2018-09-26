@@ -10,7 +10,7 @@ public class StringsUtilTest {
     final String testStringLetters = "abcdefgh";
 
     @Test
-    public void getStringSymbolWorks() {
+    public void getStringSymbolWorksProperly() {
         assertEquals('c', StringsUtil.getStringSymbol(testStringLetters, 2));
         assertEquals('h', StringsUtil.getStringSymbol(testStringLetters, testStringLetters.length() - 1));
         int k = 4;
@@ -47,6 +47,9 @@ public class StringsUtilTest {
         });
         assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
             StringsUtil.swapLetters("abc", 3, 1);
+        });
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
+            StringsUtil.swapLetters("abc", 4, 4);
         });
     }
 }

@@ -14,7 +14,7 @@ public class StringsUtil {
         return word.charAt(position);
     }
 
-    static boolean isNeighbour(char[] sentence, int index) {
+    static boolean haveNeighbours(char[] sentence, int index) {
         if (!Character.isLetter(sentence[index])) {
             return false;
         }
@@ -31,16 +31,16 @@ public class StringsUtil {
         int result = 0;
         char[] arr = sentence.toCharArray();
         for (int i = 0; i < arr.length; ++i) {
-            result += isNeighbour(arr, i) ? 1 : 0;
+            result += haveNeighbours(arr, i) ? 1 : 0;
         }
         return result;
     }
 
-    public static String swapLetters(String str, int i, int j) {
-        if (str.length() <= i || str.length() <= j) {
+    public static String swapLetters(String word, int i, int j) {
+        if (word.length() <= i || word.length() <= j) {
             throw new ArrayIndexOutOfBoundsException("Wrong position of letters");
         }
-        char ch[] = str.toCharArray();
+        char ch[] = word.toCharArray();
         char temp = ch[i];
         ch[i] = ch[j];
         ch[j] = temp;
