@@ -1,31 +1,29 @@
 package test.java.task2;
 
 import main.java.task2.StringsUtil;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.Assert.assertEquals;
+
 
 public class StringsUtilTest {
     final String testStringLetters = "abcdefgh";
 
     @Test
-    public void getStringSymbolWorksProperly() {
+    public void testGetStringSymbol() {
         assertEquals('c', StringsUtil.getStringSymbol(testStringLetters, 2));
         assertEquals('h', StringsUtil.getStringSymbol(testStringLetters, testStringLetters.length() - 1));
         int k = 4;
         assertEquals('e', StringsUtil.getStringSymbol(testStringLetters, k));
     }
 
-    @Test
-    public void wrongLetterPositionWorksProperly() {
-        assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
-            StringsUtil.getStringSymbol(testStringLetters, testStringLetters.length());
-        });
+    @Test(expected = ArrayIndexOutOfBoundsException.class)
+    public void testWrongLetterPosition() {
+        StringsUtil.getStringSymbol(testStringLetters, testStringLetters.length());
     }
 
     @Test
-    public void countEqualNeighbouringLettersWorksProperly() {
+    public void testCountEqualNeighbouringLetters() {
         assertEquals(0, StringsUtil.countEqualNeighbouringLetters(""));
         assertEquals(0, StringsUtil.countEqualNeighbouringLetters("   "));
         assertEquals(0, StringsUtil.countEqualNeighbouringLetters("77"));
@@ -35,21 +33,13 @@ public class StringsUtilTest {
     }
 
     @Test
-    public void swapLettersWorksProperly() {
+    public void testSwapLetters() {
         assertEquals("bacdefgh", StringsUtil.swapLetters(testStringLetters, 0, 1));
         assertEquals("Snritg", StringsUtil.swapLetters("String", 1, 4));
     }
 
-    @Test
-    void swapLettersWrongPositionWorksProperly() {
-        assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
-            StringsUtil.swapLetters("abc", 1, 3);
-        });
-        assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
-            StringsUtil.swapLetters("abc", 3, 1);
-        });
-        assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
-            StringsUtil.swapLetters("abc", 4, 4);
-        });
+    @Test(expected = ArrayIndexOutOfBoundsException.class)
+    void testSwapLettersThrowsException() {
+        StringsUtil.swapLetters("abc", 1, 3);
     }
 }

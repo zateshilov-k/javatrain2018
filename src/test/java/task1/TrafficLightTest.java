@@ -1,14 +1,14 @@
 package test.java.task1;
 
 import main.java.task1.TrafficLight;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.Assert.assertEquals;
+
 
 public class TrafficLightTest {
     @Test
-    public void colorWorksProperly() {
+    public void testColor() {
         assertEquals(TrafficLight.Color.RED, TrafficLight.getColorAfterTime(0));
         assertEquals(TrafficLight.Color.RED, TrafficLight.getColorAfterTime(1));
 
@@ -27,8 +27,8 @@ public class TrafficLightTest {
         assertEquals(TrafficLight.Color.YELLOW, TrafficLight.getColorAfterTime(14));
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void minutesCantBeNegative() {
-        assertThrows(IllegalArgumentException.class, () -> TrafficLight.getColorAfterTime(-1));
+        TrafficLight.getColorAfterTime(-1);
     }
 }

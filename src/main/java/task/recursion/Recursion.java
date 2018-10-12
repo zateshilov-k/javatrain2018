@@ -42,15 +42,4 @@ public class Recursion {
             return (1 + countDigits(num/10));
         }
     }
-    public static void main(String[] args) {
-        System.out.println(factorial(4));
-        System.out.println(pow(3,3));
-
-        System.out.println(sumDigits(12345));
-        System.out.println(sumDigits(10100));
-
-        System.out.println(countDigits(2));
-        System.out.println(countDigits(12345));
-        System.out.println(countDigits(101010));
-    }
 }
