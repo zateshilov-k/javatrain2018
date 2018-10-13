@@ -23,7 +23,7 @@ import java.util.stream.IntStream;
  *
  */
 public class CharArrayUtils {
-    public static String getCornerSymbols(char[][] array) {
+    public static String getCornerChars(char[][] array) {
         if (array.length < 2) {
             throw new IllegalArgumentException("Must be more than 2 rows");
         }
@@ -76,7 +76,7 @@ public class CharArrayUtils {
         return result;
     }
 
-    public static ArrayList<String> getEvenSymbolsFromArrayRows(char[][] array) {
+    public static ArrayList<String> getEvenElementsFromArrayRows(char[][] array) {
         ArrayList<String> result = new ArrayList<>();
         StringBuilder currentString = new StringBuilder();
         for (char[] currArr : array) {
@@ -89,7 +89,7 @@ public class CharArrayUtils {
         return result;
     }
 
-    public static ArrayList<String> getOddSymbolsFromArrayColumns(char[][] array) {
+    public static ArrayList<String> getOddElementsFromArrayColumns(char[][] array) {
         int rowLength = array[0].length;
         for (char[] currentArray : array) {
             if (currentArray.length != rowLength) {

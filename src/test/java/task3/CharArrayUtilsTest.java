@@ -16,30 +16,30 @@ public class CharArrayUtilsTest {
                 {'d', 'e', 'f'},
                 {'g', 'h', 'i'}
         };
-        assertEquals("acgi", getCornerSymbols(testArray));
+        assertEquals("acgi", getCornerChars(testArray));
 
         testArray = new char[][]{
                 "ab".toCharArray(),
                 "cd".toCharArray()
         };
-        assertEquals("abcd", getCornerSymbols(testArray));
+        assertEquals("abcd", getCornerChars(testArray));
 
         testArray = new char[][]{
                 "abc".toCharArray(),
                 "d".toCharArray(),
                 "efg".toCharArray()
         };
-        assertEquals("aceg", getCornerSymbols(testArray));
+        assertEquals("aceg", getCornerChars(testArray));
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void testGetCornerElements_oneDimArray() {
-        getCornerSymbols(new char[][]{"abc".toCharArray()});
+    public void testGetCornerElementsOneDimArray() {
+        getCornerChars(new char[][]{"abc".toCharArray()});
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void testGetCornerElements_triangleArray() {
-        getCornerSymbols(new char[][]{
+    public void testGetCornerElementsTriangleArray() {
+        getCornerChars(new char[][]{
                 "abc".toCharArray(),
                 "c".toCharArray()
         });
@@ -53,13 +53,13 @@ public class CharArrayUtilsTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void testGetWordFromArray_negativeIdx() {
+    public void testGetWordFromArrayNegativeIdx() {
         char[][] testArray = {"ab".toCharArray(), "cd".toCharArray()};
         getWordFromArray(testArray, -1, 0, 1);
     }
 
     @Test(expected = ArrayIndexOutOfBoundsException.class)
-    public void testGetWordFromArray_outOfBound() {
+    public void testGetWordFromArrayOutOfBound() {
         char[][] testArray = {"ab".toCharArray(), "cd".toCharArray()};
         getWordFromArray(testArray, 2, 0, 1);
     }
@@ -84,18 +84,18 @@ public class CharArrayUtilsTest {
     }
 
     @Test
-    public void testGetEvenSymbolsFromArrayRows() {
+    public void testGetEvenElementsFromArrayRows() {
         char[][] testArray = {"ABCD".toCharArray(), "EFGH".toCharArray()};
         ArrayList<String> expected = new ArrayList<>(Arrays.asList("AC", "EG"));
-        assertEquals(expected, getEvenSymbolsFromArrayRows(testArray));
+        assertEquals(expected, getEvenElementsFromArrayRows(testArray));
 
         testArray = new char[][]{"0123456789".toCharArray()};
         expected = new ArrayList<>(Arrays.asList("02468"));
-        assertEquals(expected, getEvenSymbolsFromArrayRows(testArray));
+        assertEquals(expected, getEvenElementsFromArrayRows(testArray));
     }
 
     @Test
-    public void testGetOddSymbolsFromArrayColumns() {
+    public void testGetOddElementsFromArrayColumns() {
         char[][] testArray = {
                 "abc".toCharArray(),
                 "def".toCharArray(),
@@ -103,7 +103,7 @@ public class CharArrayUtilsTest {
                 "jkl".toCharArray()
         };
         ArrayList<String> expected = new ArrayList<>(Arrays.asList("dj", "ek", "fl"));
-        assertEquals(expected, getOddSymbolsFromArrayColumns(testArray));
+        assertEquals(expected, getOddElementsFromArrayColumns(testArray));
 
         testArray = new char[][]{
                 "*****".toCharArray(),
@@ -113,13 +113,13 @@ public class CharArrayUtilsTest {
                 "*****".toCharArray(),
         };
         expected = new ArrayList<>(Arrays.asList("05", "16", "27", "38", "49"));
-        assertEquals(expected, getOddSymbolsFromArrayColumns(testArray));
+        assertEquals(expected, getOddElementsFromArrayColumns(testArray));
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void testGetOddSymbolsFromArrayColumnsWrongArraySize() {
+    public void testGetOddElementsFromArrayColumnsWrongArraySize() {
         char[][] testArray = {"ABC".toCharArray(), "A".toCharArray()};
-        getOddSymbolsFromArrayColumns(testArray);
+        getOddElementsFromArrayColumns(testArray);
     }
 
 
