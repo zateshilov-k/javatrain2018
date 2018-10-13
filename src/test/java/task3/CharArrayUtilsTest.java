@@ -5,10 +5,10 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static main.java.task3.SymbolArrayUtils.*;
+import static main.java.task3.CharArrayUtils.*;
 import static org.junit.Assert.assertEquals;
 
-public class SymbolArrayUtilsTest {
+public class CharArrayUtilsTest {
     @Test
     public void testGetCornerElements() {
         char[][] testArray = {
@@ -75,21 +75,52 @@ public class SymbolArrayUtilsTest {
         };
         assertEquals("abcdefghijklm", getWordFromChessArray(array, Direction.LEFT_TO_RIGHT));
         assertEquals("afkdibglejchm", getWordFromChessArray(array, Direction.TOP_TO_BOTTOM));
-        /*assertThrows(IllegalArgumentException.class,
-                () -> {
-                    SymbolArrayUtils.getWordFromChessArray(new char[][]{
-                            "abc".toCharArray(),
-                            "c".toCharArray()
-                    }, true);
-                });
-         */
+
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testGetWordFromChessBoardArrayWrongArraySize() {
+        getWordFromChessArray(new char[][]{"abc".toCharArray(), "c".toCharArray()}, Direction.LEFT_TO_RIGHT);
     }
 
     @Test
     public void testGetEvenSymbolsFromArrayRows() {
         char[][] testArray = {"ABCD".toCharArray(), "EFGH".toCharArray()};
-        ArrayList<String> expected = new ArrayList<>(Arrays.asList("AC","EG"));
-        assertEquals(expected,getEvenSymbolsFromArrayRows(testArray));
+        ArrayList<String> expected = new ArrayList<>(Arrays.asList("AC", "EG"));
+        assertEquals(expected, getEvenSymbolsFromArrayRows(testArray));
+
+        testArray = new char[][]{"0123456789".toCharArray()};
+        expected = new ArrayList<>(Arrays.asList("02468"));
+        assertEquals(expected, getEvenSymbolsFromArrayRows(testArray));
     }
+
+    @Test
+    public void testGetOddSymbolsFromArrayColumns() {
+        char[][] testArray = {
+                "abc".toCharArray(),
+                "def".toCharArray(),
+                "ghi".toCharArray(),
+                "jkl".toCharArray()
+        };
+        ArrayList<String> expected = new ArrayList<>(Arrays.asList("dj", "ek", "fl"));
+        assertEquals(expected, getOddSymbolsFromArrayColumns(testArray));
+
+        testArray = new char[][]{
+                "*****".toCharArray(),
+                "01234".toCharArray(),
+                "*****".toCharArray(),
+                "56789".toCharArray(),
+                "*****".toCharArray(),
+        };
+        expected = new ArrayList<>(Arrays.asList("05", "16", "27", "38", "49"));
+        assertEquals(expected, getOddSymbolsFromArrayColumns(testArray));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testGetOddSymbolsFromArrayColumnsWrongArraySize() {
+        char[][] testArray = {"ABC".toCharArray(), "A".toCharArray()};
+        getOddSymbolsFromArrayColumns(testArray);
+    }
+
 
 }

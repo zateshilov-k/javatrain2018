@@ -2,6 +2,8 @@ package main.java.task3;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /* 12.270 Напечатать строку, образованую символами, расположенными в четырёх углах массива (в любом порядке)
@@ -16,8 +18,11 @@ import java.util.stream.IntStream;
  *        |*| |*| |*|
  *        | |*| |*| |
  *        |*| |*| |*|
+ * 12.273 Напечатать слова, образованные чётными элементами каждой строки массива.
+ * 12.274 Напечатать слова, образованные нечётными элементами каждого столбца массива.
+ *
  */
-public class SymbolArrayUtils {
+public class CharArrayUtils {
     public static String getCornerSymbols(char[][] array) {
         if (array.length < 2) {
             throw new IllegalArgumentException("Must be more than 2 rows");
@@ -85,12 +90,29 @@ public class SymbolArrayUtils {
     }
 
     public static ArrayList<String> getOddSymbolsFromArrayColumns(char[][] array) {
-        ArrayList<String> result = new ArrayList<>();
-        StringBuilder currentString = new StringBuilder();
-        for (int rowIdx = 1; rowIdx < array.length; rowIdx += 2) {
-            for (int columnIdx = 0; columnIdx < array[rowIdx].length; columnIdx++) {
-
+        int rowLength = array[0].length;
+        for (char[] currentArray : array) {
+            if (currentArray.length != rowLength) {
+                throw new IllegalArgumentException("Array must be rectangular");
             }
+        }
+
+        ArrayList<String> result = new ArrayList<>();
+        for (int columnIdx = 0; columnIdx < array[0].length; ++columnIdx) {
+            final int currCol = columnIdx;
+            Character[] col = IntStream
+                    .range(0, array.length)
+                    .filter(i -> i % 2 != 0)
+                    .map(i -> i = array[i][currCol])
+                    .mapToObj(i -> (char) i)
+                    .toArray(Character[]::new);
+            // Cast Character[] to String
+            List<Character> list = Arrays.asList(col);
+            String stringFromCharacterArray = list
+                    .stream()
+                    .map(e -> e.toString())
+                    .collect(Collectors.joining());
+            result.add(stringFromCharacterArray);
         }
         return result;
     }
@@ -98,14 +120,6 @@ public class SymbolArrayUtils {
     public enum Direction {
         LEFT_TO_RIGHT,
         TOP_TO_BOTTOM
-    }
-
-    public static void main(String[] args) {
-        char[][] matrix = {"ab".toCharArray(), "cd".toCharArray()};
-        int column = 10;
-
-        Object[] col = IntStream.range(0, matrix.length).mapToObj(i ->(char)i).toArray();
-        Character[] arr = Arrays.copyOf(col,col.length,Character[].class);
     }
 }
 
