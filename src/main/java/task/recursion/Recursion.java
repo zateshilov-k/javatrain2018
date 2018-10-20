@@ -75,7 +75,6 @@ public class Recursion {
         } else {
             return (num % 10 + sumDigits(num / 10));
         }
-
     }
 
     /**
