@@ -6,36 +6,31 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-/* 12.270 Напечатать строку, образованую символами, расположенными в четырёх углах массива (в любом порядке)
- * 12.271 Составить программу, которая печатает слово, образованное несколькими идущими подряд символами
- *        с заданными номерами, расположенными в некоторой строке массива
- * 12.272 Дан двумерный массив размером 5х5, заполненный буквами. Напечатать
- *        слово,  образованное  элементами  массива,  отмеченными  звездочкой:, при прочтении их:
- *        а)слева направо в каждой строке, начиная с первой;
- *        б)сверху вниз в каждом столбце, начиная с первого.
- *        |*| |*| |*|
- *        | |*| |*| |
- *        |*| |*| |*|
- *        | |*| |*| |
- *        |*| |*| |*|
- * 12.273 Напечатать слова, образованные чётными элементами каждой строки массива.
- * 12.274 Напечатать слова, образованные нечётными элементами каждого столбца массива.
- *
- */
 public class CharArrayUtils {
+    /**
+     * Return string of 4 corner elements of array.
+     *
+     * @param array input array
+     * @return resulting string with size = 4
+     */
     public static String getCornerChars(char[][] array) {
-        if (array.length < 2) {
-            throw new IllegalArgumentException("Must be more than 2 rows");
+        if (array.length < 2 || array[array.length - 1].length < 2) {
+            throw new IllegalArgumentException("Illegal array size.");
         }
-        if (array[array.length - 1].length < 2) {
-            throw new IllegalArgumentException("Must be more than 2 columns");
-        }
-
         return "" + array[0][0] + array[0][array[0].length - 1]
                 + array[array.length - 1][0]
                 + array[array.length - 1][array[array.length - 1].length - 1];
     }
 
+    /**
+     * Return word from chosen row of array between chosen start index and end index.
+     *
+     * @param array          input two-dimensional array
+     * @param rowIdx         index of chosen row
+     * @param startColumnIdx first index of word
+     * @param endColumnIdx   last index of word
+     * @return resulting string
+     */
     public static String getWordFromArray(char[][] array, int rowIdx, int startColumnIdx, int endColumnIdx) {
         if ((rowIdx < 0) || (startColumnIdx < 0) || (endColumnIdx < 0)) {
             throw new IllegalArgumentException("Indexes must be more than 0.");
@@ -49,6 +44,18 @@ public class CharArrayUtils {
         return new String(Arrays.copyOfRange(array[rowIdx], startColumnIdx, endColumnIdx + 1));
     }
 
+    /**
+     * Return elements of "chess board" array, example:
+     * |*| |*| |*|
+     * | |*| |*| |
+     * |*| |*| |*|   - 5*5 "chess board" array
+     * | |*| |*| |
+     * |*| |*| |*|
+     *
+     * @param array     input two-dimensional array
+     * @param direction define direction of array traversal LEFT_TO_RIGHT, TOP_TO_BOTTOM
+     * @return resulting string
+     */
     public static String getWordFromChessArray(char[][] array, Direction direction) {
         for (char[] outArr : array) {
             if (outArr.length != array.length) {
@@ -76,6 +83,12 @@ public class CharArrayUtils {
         return result;
     }
 
+    /**
+     * Return array of words, formed by even elements of every row of input array.
+     *
+     * @param array input two-dimensional array
+     * @return resulting array of words
+     */
     public static ArrayList<String> getEvenElementsFromArrayRows(char[][] array) {
         ArrayList<String> result = new ArrayList<>();
         StringBuilder currentString = new StringBuilder();
@@ -89,6 +102,12 @@ public class CharArrayUtils {
         return result;
     }
 
+    /**
+     * Return array of words, formed by odd elements of every column of input array.
+     *
+     * @param array input two-dimensional array
+     * @return resulting array of words
+     */
     public static ArrayList<String> getOddElementsFromArrayColumns(char[][] array) {
         int rowLength = array[0].length;
         for (char[] currentArray : array) {
