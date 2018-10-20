@@ -79,9 +79,9 @@ public class Recursion {
     }
 
     /**
-     * Count number of digits of number.
+     * Count digits of number.
      *
-     * @param num number for which we are couniting digits
+     * @param num number for which we are counting digits
      * @return result
      */
     public long countDigits(int num) {

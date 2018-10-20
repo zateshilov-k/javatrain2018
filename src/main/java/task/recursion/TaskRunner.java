@@ -12,6 +12,12 @@ public class TaskRunner {
         this.power = power;
     }
 
+    /**
+     * Print table for all methods in Recursion class.
+     *
+     * @param startRange start of range methods arguments
+     * @param endRange end of range methods arguments
+     */
     public void printTableForMethods(int startRange, int endRange) {
         Map<String, Function<Integer, Long>> unaryMethods = r.getUnaryMethods();
         for (String name : unaryMethods.keySet()) {
