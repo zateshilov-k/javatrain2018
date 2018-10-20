@@ -4,11 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.BiFunction;
 import java.util.function.Function;
-import java.util.function.UnaryOperator;
 
 
 public class Recursion {
-    private final Map<String, Function<Integer,Long>> unaryMethods = new HashMap<>();
+    private final Map<String, Function<Integer, Long>> unaryMethods = new HashMap<>();
     private final Map<String, BiFunction<Double, Integer, Double>> biMethods = new HashMap<>();
 
     public Recursion() {

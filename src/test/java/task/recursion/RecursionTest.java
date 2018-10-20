@@ -3,11 +3,11 @@ package test.java.task.recursion;
 import main.java.task.recursion.Recursion;
 import org.junit.Test;
 
-import static main.java.task.recursion.Recursion.*;
 import static org.junit.Assert.assertEquals;
 
 public class RecursionTest {
     Recursion recursion = new Recursion();
+
     @Test
     public void testFactorial() {
         assertEquals(1, recursion.factorial(0));
@@ -36,6 +36,7 @@ public class RecursionTest {
         assertEquals(3, recursion.sumDigits(101010));
         assertEquals(15, recursion.sumDigits(12345));
     }
+
     @Test(expected = IllegalArgumentException.class)
     public void testSumDigits_throws() {
         recursion.sumDigits(-1);
@@ -46,6 +47,7 @@ public class RecursionTest {
         assertEquals(6, recursion.countDigits(101010));
         assertEquals(5, recursion.countDigits(12345));
     }
+
     @Test(expected = IllegalArgumentException.class)
     public void testCountDigits_throws() {
         recursion.countDigits(-2);
