@@ -16,14 +16,14 @@ public class TaskRunner {
      * Print table for all methods in Recursion class.
      *
      * @param startRange start of range methods arguments
-     * @param endRange end of range methods arguments
+     * @param endRange   end of range methods arguments
      */
     public void printTableForMethods(int startRange, int endRange) {
         Map<String, Function<Integer, Long>> unaryMethods = r.getUnaryMethods();
         for (String name : unaryMethods.keySet()) {
             System.out.println(name);
             for (int i = startRange; i < endRange; i++) {
-                System.out.print("Intput: " + i + " ");
+                System.out.print("Input: " + i + " ");
                 System.out.print("Output: " + unaryMethods.get(name).apply(i) + " ");
                 System.out.println();
             }
@@ -34,7 +34,7 @@ public class TaskRunner {
             System.out.println(name);
             System.out.println("Power = " + power);
             for (int i = startRange; i < endRange; i++) {
-                System.out.print("Intput: " + i + " ");
+                System.out.print("Input: " + i + " ");
                 System.out.print("Output: " + biFunctions.get(name).apply((double) i, power) + " ");
                 System.out.println();
             }
