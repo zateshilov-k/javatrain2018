@@ -25,6 +25,12 @@ public class Recursion {
         return new HashMap<>(unaryMethods);
     }
 
+    /**
+     * Calculate factorial with recursion.
+     *
+     * @param n natural number
+     * @return factorial of n
+     */
     public long factorial(int n) {
         if (n < 0) {
             throw new IllegalArgumentException("n should be natural");
@@ -36,6 +42,13 @@ public class Recursion {
         }
     }
 
+    /**
+     * Calculate power of double with recursion.
+     *
+     * @param num number for which the power is calculated
+     * @param pow power
+     * @return result
+     */
     public double pow(double num, int pow) {
         if (pow < 0) {
             throw new IllegalArgumentException("pow should be natural");
@@ -47,6 +60,12 @@ public class Recursion {
         }
     }
 
+    /**
+     * Calculate sum of all digits.
+     *
+     * @param num number for which sum of all digits is calculated
+     * @return sum of all digits
+     */
     public long sumDigits(int num) {
         if (num < 0) {
             throw new IllegalArgumentException("n should be natural");
@@ -59,6 +78,12 @@ public class Recursion {
 
     }
 
+    /**
+     * Count number of digits of number.
+     *
+     * @param num number for which we are couniting digits
+     * @return result
+     */
     public long countDigits(int num) {
         if (num < 0) {
             throw new IllegalArgumentException("n should be natural");
