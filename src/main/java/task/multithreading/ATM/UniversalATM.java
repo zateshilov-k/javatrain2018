@@ -4,6 +4,9 @@ import main.java.task.multithreading.BankAccount;
 
 import java.util.List;
 
+/**
+ * ATM class that implements both Deposit and Dispenser interfaces.
+ */
 public class UniversalATM extends AbstractATM implements Dispenser, Deposit {
     public UniversalATM(List<BankAccount> bankAccounts) {
         this.bankAccounts.addAll(bankAccounts);

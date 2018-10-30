@@ -4,6 +4,9 @@ import main.java.task.multithreading.BankAccount;
 
 import java.util.List;
 
+/**
+ * ATM class that implements Dispenser interface.
+ */
 public class CashDispenser extends AbstractATM implements Dispenser {
     public CashDispenser(List<BankAccount> bankAccounts) {
         this.bankAccounts.addAll(bankAccounts);
