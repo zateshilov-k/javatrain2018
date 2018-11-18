@@ -9,6 +9,10 @@ import com.epam.battleships.player.Player;
 import com.epam.battleships.ship.ShipType;
 import com.epam.battleships.state.MenuState;
 
+/**
+ * Class determines behavior of main menu.
+ * Depending on user input, class change menu state and create and start Game class with chosen type of Player.
+ */
 public class MainMenu {
     MenuState state = MenuState.VS_HUMAN;
     InputController inputController = new InputController();
@@ -19,6 +23,9 @@ public class MainMenu {
     Grid player2EnemyGrid = new Grid();
     boolean exit = false;
 
+    /**
+     * Print current main menu state to console.
+     */
     public void draw() {
         System.out.println("************************************");
         System.out.println();
@@ -33,6 +40,14 @@ public class MainMenu {
         System.out.println("************************************");
     }
 
+    /**
+     * Method takes action and depending on it:
+     * - changes current menu item,
+     * - shows help
+     * - quits
+     * - creates and starts game with chosen player types
+     * @param action action from input Controller
+     */
     public void changeState(Action action) {
         switch (action) {
             case DOWN:
@@ -67,6 +82,9 @@ public class MainMenu {
         }
     }
 
+    /**
+     * Method print help about input settings and about types of ships
+     */
     private void drawHelp() {
         System.out.println("Use 'w','a','s','d' to move ship or aim up, left, down, right respectively");
         System.out.println("Use 'q' to rotate ship and 'e' to place ship or to shoot at chosen position");
@@ -79,6 +97,9 @@ public class MainMenu {
 
     }
 
+    /**
+     * Main loop of main menu
+     */
     public void run() {
         while (!exit) {
             draw();

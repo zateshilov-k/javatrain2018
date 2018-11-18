@@ -9,6 +9,9 @@ import com.epam.battleships.state.GameState;
 
 import java.util.Optional;
 
+/**
+ * Class describes how human player can shoot and place ships
+ */
 public class HumanPlayer extends Player {
 
     InputController inputController = new InputController();
@@ -28,6 +31,13 @@ public class HumanPlayer extends Player {
         }
     }
 
+    /**
+     * In method user get input action and try to place ships depending on this action, using method placeShips.
+     * If human place all ships, method returns next state.
+     *
+     * @param state current state
+     * @return      new state
+     */
     @Override
     public GameState placeShipsAndGetNewState(GameState state) {
         inputController.nextAction();
@@ -39,6 +49,14 @@ public class HumanPlayer extends Player {
 
     }
 
+    /**
+     * In method user get input action and try to shoot enemy ships depending on this action, using method shoot.
+     * If human miss, method returns next state.
+     *
+     * @param state         current state
+     * @param anotherPlayer attacked player
+     * @return              next state
+     */
     @Override
     public GameState shootAndGetNewState(GameState state, Player anotherPlayer) {
         inputController.nextAction();
@@ -49,12 +67,23 @@ public class HumanPlayer extends Player {
         }
     }
 
+    /**
+     * Method print grids to console
+     *
+     * @param anotherPlayer enemy player
+     */
     @Override
     public void draw(Player anotherPlayer) {
         enemyGrid.draw(deadEnemyShips, shoots);
         ownGrid.draw(ships, anotherPlayer.shoots);
     }
 
+    /**
+     * Method that moves ships around grid or spin ship depending on input action.
+     *
+     * @param currentAction input current action from user
+     * @return              true if not all ships are placed
+     */
     public boolean placeShips(Action currentAction) {
         Optional<Ship> ship = ships.stream().filter(currShip -> !currShip.isPlaced()).findFirst();
         if (!ship.isPresent()) {
@@ -97,6 +126,13 @@ public class HumanPlayer extends Player {
         }
     }
 
+    /**
+     * Method moves shoot pointer around the grid depending on input action.
+     * Also shoots at chosen position with method shootAtPosition()
+     * @param currentAction input current action from user
+     * @param anotherPlayer enemy player
+     * @return              true, if shoot hit any ship
+     */
     public boolean shoot(Action currentAction, Player anotherPlayer) {
         switch (currentAction) {
             case RIGHT:

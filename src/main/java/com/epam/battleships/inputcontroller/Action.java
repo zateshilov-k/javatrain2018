@@ -1,5 +1,8 @@
 package com.epam.battleships.inputcontroller;
 
+/**
+ * Action corresponding to input.
+ */
 public enum Action {
     LEFT,
     RIGHT,

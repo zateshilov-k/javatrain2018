@@ -3,6 +3,10 @@ package com.epam.battleships.main;
 import com.epam.battleships.player.Player;
 import com.epam.battleships.state.GameState;
 
+/**
+ * Main game class that contains game loop and both players.
+ * Also contains references to both players and contains current GameState
+ */
 public class Game {
     Player playerOne;
     Player playerTwo;
@@ -14,6 +18,9 @@ public class Game {
         this.playerTwo = playerTwo;
     }
 
+    /**
+     * Game loop, contains switch which determines what to do in every GameState
+     */
     public void run() {
         while (!gameFinished) {
             switch (state) {
@@ -43,6 +50,10 @@ public class Game {
         }
     }
 
+    /**
+     * Method determines how many ships each player has killed compare to enemy fleet size, and
+     * displays winner player and ends the game.
+     */
     private void checkWinCondition() {
         if (playerOne.getShipsSize() == playerTwo.getDeadEnemyShipsSize()) {
             System.out.println("Player 2 WIN!");

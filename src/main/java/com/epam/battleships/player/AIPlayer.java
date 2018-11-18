@@ -6,17 +6,32 @@ import com.epam.battleships.ship.Ship;
 import com.epam.battleships.ship.ShipType;
 import com.epam.battleships.state.GameState;
 
+/**
+ * Class describes how AI player can shoot and place ships
+ */
 public class AIPlayer extends Player {
     public AIPlayer(Grid ownGrid, Grid enemyGrid) {
         super(ownGrid, enemyGrid);
     }
 
+    /**
+     * Method places ships and return next state
+     *
+     * @param state current state
+     * @return      next state
+     */
     @Override
     public GameState placeShipsAndGetNewState(GameState state) {
         placeShips();
         return state.getNextState();
     }
 
+    /**
+     * Method shoots at enemy ships and return next state
+     * @param state         current state
+     * @param anotherPlayer attacked player
+     * @return
+     */
     @Override
     public GameState shootAndGetNewState(GameState state, Player anotherPlayer) {
         if (!shoot(anotherPlayer)) {
@@ -26,11 +41,20 @@ public class AIPlayer extends Player {
         }
     }
 
+    /**
+     * Draw human player grid if we want to draw grid for AI player.
+     *
+     * @param anotherPlayer enemy player
+     */
     @Override
     public void draw(Player anotherPlayer) {
         anotherPlayer.draw(this);
     }
 
+    /**
+     * Automatically generates ships that are correctly placed on grid.
+     * Generate random ship placement until all ships are correctly placed
+     */
     public void placeShips() {
         for (ShipType currentShipType : ShipType.values()) {
             for (int currentShipIdx = 0; currentShipIdx < currentShipType.getNumberShips(); ++currentShipIdx) {
@@ -60,6 +84,13 @@ public class AIPlayer extends Player {
     }
 
 
+    /**
+     * Choose random position where to shoot.
+     * Chosen position shouldn't be chosen previously.
+     *
+     * @param anotherPlayer enemy player
+     * @return              true if hit enemy ship, else false
+     */
     public boolean shoot(Player anotherPlayer) {
         Coordinate shootAt = Coordinate.nextRandomCoordinate();
         while (isAlreadyShootHere(shootAt)) {

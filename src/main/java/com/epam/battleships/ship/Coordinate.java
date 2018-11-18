@@ -5,6 +5,9 @@ import com.epam.battleships.player.Grid;
 import java.util.Objects;
 import java.util.Random;
 
+/**
+ * Class represents 2 dim coordinates on grid.
+ */
 public class Coordinate {
     public int x;
     public int y;
@@ -14,6 +17,11 @@ public class Coordinate {
         this.y = y;
     }
 
+    /**
+     * Method returs next random coordinate within grid
+     *
+     * @return random coordinate
+     */
     public static Coordinate nextRandomCoordinate() {
         Random random = new Random();
         return new Coordinate(random.nextInt(Grid.getRowAndColumnNumber()),
@@ -42,14 +50,31 @@ public class Coordinate {
                 '}';
     }
 
+    /**
+     * Method returns new coordinate that shifted on y axis.
+     * @param value value of shift.
+     * @return      new shifted coordinate.
+     */
     public Coordinate plusY(int value) {
         return new Coordinate(this.x, this.y + value);
     }
 
+    /**
+     * Method returns new coordinate that shifted on x axis.
+     *
+     * @param value value of shift.
+     * @return      new shifted coordinate.
+     */
     public Coordinate plusX(int value) {
         return new Coordinate(this.x + value, this.y);
     }
 
+    /**
+     * Check if chosen coordinate is around current coordinate
+     *
+     * @param otherCoordinate other coordinate
+     * @return                true if other coordinate is around this.coordinate
+     */
     public boolean isAround(Coordinate otherCoordinate) {
         if (this.x <= otherCoordinate.x + 1
                 && this.x >= otherCoordinate.x - 1

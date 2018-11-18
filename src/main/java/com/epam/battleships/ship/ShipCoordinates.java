@@ -1,10 +1,11 @@
 package com.epam.battleships.ship;
 
-import com.epam.battleships.ship.Coordinate;
-
 import java.util.Iterator;
 import java.util.Objects;
 
+/**
+ * Class contains start and end coordinates of ship and iterator to iterate through all ship coordinates.
+ */
 public class ShipCoordinates implements Iterable<Coordinate> {
     Coordinate startCoordinate;
     Coordinate endCoordinate;
@@ -57,6 +58,10 @@ public class ShipCoordinates implements Iterable<Coordinate> {
                 '}';
     }
 
+    /**
+     * Iterator through all ships coordinates
+     * @return new iterator
+     */
     @Override
     public Iterator<Coordinate> iterator() {
         Iterator<Coordinate> it = new Iterator<Coordinate>() {
@@ -76,16 +81,27 @@ public class ShipCoordinates implements Iterable<Coordinate> {
         return it;
     }
 
+    /**
+     * Shift start and end coordinates along x axis on value
+     * @param value shift value
+     */
     public void shiftX(int value) {
         startCoordinate.x += value;
         endCoordinate.x += value;
     }
 
+    /**
+     * Shift start and end coordinates along y axis on value
+     * @param value shift value
+     */
     public void shiftY(int value) {
         startCoordinate.y += value;
         endCoordinate.y += value;
     }
 
+    /**
+     * Rotate ship around start coordinate.
+     */
     public void spin() {
         if (startCoordinate.y == endCoordinate.y) {
             endCoordinate.y = startCoordinate.y + endCoordinate.x - startCoordinate.x;

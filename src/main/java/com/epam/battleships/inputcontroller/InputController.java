@@ -2,6 +2,9 @@ package com.epam.battleships.inputcontroller;
 
 import java.util.Scanner;
 
+/**
+ * Class that transform user input to enum Action
+ */
 public class InputController {
     public Action currentAction;
     Scanner reader = new Scanner(System.in);
@@ -13,6 +16,10 @@ public class InputController {
         return currentAction;
     }
 
+    /**
+     * Get input from Scanner reader and return next action, corresponding to string entered by user.
+     * @return next action
+     */
     public Action nextAction() {
         String string = reader.next();
         switch (string) {

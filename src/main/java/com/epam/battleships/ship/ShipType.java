@@ -1,5 +1,8 @@
 package com.epam.battleships.ship;
 
+/**
+ * Class represents ship's type and contain string view of ships, number of ships and ship's length.
+ */
 public enum ShipType {
     BATTLESHIP(1, 4) {
         @Override

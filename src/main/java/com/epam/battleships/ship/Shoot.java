@@ -1,7 +1,8 @@
 package com.epam.battleships.ship;
 
-import com.epam.battleships.ship.Coordinate;
-
+/**
+ * Class represents shoot of players
+ */
 public class Shoot extends Coordinate {
     public boolean isHit = false;
 
