@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 
-public class TestHumanPlayer {
+public class HumanPlayerTest {
     HumanPlayer player1 = new HumanPlayer(new Grid(), new Grid());
     HumanPlayer player2 = new HumanPlayer(new Grid(), new Grid());
 

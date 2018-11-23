@@ -3,7 +3,7 @@ package com.epam.battleships.ship;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class TestCoordinate {
+public class CoordinateTest {
     @Test
     public void testIsAround() {
         Coordinate coordinate = new Coordinate(1, 1);

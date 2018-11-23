@@ -8,7 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 
-public class TestPlayer {
+public class PlayerTest {
     static Player player1 = new HumanPlayer(new Grid(), new Grid());
     static Player player2 = new HumanPlayer(new Grid(), new Grid());
 

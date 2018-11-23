@@ -6,7 +6,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 
-public class TestAIPlayer {
+public class AIPlayerTest {
     AIPlayer player1 = new AIPlayer(new Grid(), new Grid());
     Player player2 = new AIPlayer(new Grid(), new Grid());
 

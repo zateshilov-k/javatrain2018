@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import java.util.Iterator;
 
-public class TestShipCoordinates {
+public class ShipCoordinatesTest {
     ShipCoordinates shipCoordinates;
 
     @Before

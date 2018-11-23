@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 
-public class TestShip {
+public class ShipTest {
     Ship ship = new Ship(new Coordinate(0, 0), new Coordinate(0, 3), ShipType.BATTLESHIP);
 
     @Test
